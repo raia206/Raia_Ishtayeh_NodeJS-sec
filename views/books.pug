@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title My Bookstore
+    link(rel="stylesheet", href="/style.css") 
+  body
+block content
+  h1 Books
+
+    table
+      thead
+        tr
+          th ID
+          th Name
+        
+      tbody
+        each book in books_detail
+          tr
+            td= book.id 
+            td= book.name
+           
+
+  // Form to add a new book
+  h2 Add a New Book
+  form(action="/books", method="POST")
+    div
+      label(for="id") id:
+      input(type="number", name="id", required)
+    div
+      label(for="name") name:
+      input(type="text", name="name", required)
+    div
+      button(type="submit") Add Book
